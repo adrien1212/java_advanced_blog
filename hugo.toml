@@ -1,4 +1,4 @@
-baseURL = 'https://advancedjava.fr/'
+baseURL = 'https://test.softwarearchitecture.fr/'
 languageCode = 'fr-fr'
 title = 'Advanced Java'
 theme = ["hugo-theme-relearn"]
@@ -11,7 +11,7 @@ enableRobotsTXT = true
   home = ["HTML", "RSS", "SEARCH", "SEARCHPAGE"]
 
 [params]
-  canonical = 'https://advancedjava.fr/'
+  canonical = 'https://test.softwarearchitecture.fr/'
   author.name = "Adrien CAUBEL"
   description = "Advanced Java"
   alwaysopen = true
