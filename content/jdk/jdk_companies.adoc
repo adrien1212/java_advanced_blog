@@ -1,0 +1,57 @@
+---
+title: "OpenJDK, Oracle JDK, AdoptOpenJDK ?"
+weight: 10
+---
+
+CAUTION: https://whichjdk.com/#openjdk-builds-by-oracle-jdkjavanet
+
+== OpenJDK project
+OpenJDK have multiple meaning :
+
+- the java source code project hosted at http://hg.openjdk.java.net
+- the distribution, it's a distribution free of charge distribution provided by Oracle
+
+So the OpenJDK project itself is managed on http://openjdk.java.net where you can find specifications, source code, and mailing lists, but there are no builds that you can download. You need to choose a distribution.
+
+== OpenJDK distributions
+
+=== OpenJDK builds by Oracle
+http://jdk.java.net (OpenJDK builds by Oracle)
+
+These builds will only be updated for a 6-month period. So if you want to stick with LTS version we don't recommend to use _OpenJDK builds by Oracle_. Indeed, even if Java 11 is LTS version, Oracle shall not release an update for 11.0 you must move to the next version.
+
+TIP: When you want to download JDK from openjdk.org you are redirected to jdk.java.net. Indeed the both site are run by Oracle.
+
+=== Oracle Java SE Development Kit (OracleJDK)    
+https://www.oracle.com/java/
+
+Oracle provide its commercial version of OpenJDK, which are based on the exactly same sources of the OpenJDK. In this version Oracle provide commercial support and come with longer support for LTS versions.
+
+
+=== Eclipse Temurin by Adoptium (AdoptOpenJDK)
+https://adoptium.net/
+
+AdoptOpenJDK is an organization founded by some prominent members of the Java community and backed by some major industry companies aimed at providing binary builds and installers at no cost for users of Java technology. 
+
+So AdoptOpenJdk takes the code from OpenJDK project and then support it. Unlike the _OpenJDK builds by Oracle_, these builds will continue for a much longer period for major releases.
+
+=== Other distributions
+Several others companies provide Java build.footnote:[https://stackoverflow.com/a/52431765/9399016] : Amazon, IMB, Microsoft, RedHat, etc ...
+
+[options="header"]
+|====================================================================================================================================================================================================================
+| **Provider**      | **Free Builds from Source** | **Free Binary Distributions** | **Extended Updates** | **Commercial Support** | **Permissive License** | **Website**                                             
+| AdoptOpenJDK      | Yes                         | Yes                           | Yes                  | No                     | Yes                    | https://adoptopenjdk.net                                
+| Amazon – Corretto | Yes                         | Yes                           | Yes                  | No                     | Yes                    | https://aws.amazon.com/corretto                         
+| Azul Zulu         | No                          | Yes                           | Yes                  | Yes                    | Yes                    | https://www.azul.com/downloads/zulu/                    
+| BellSoft Liberica | No                          | Yes                           | Yes                  | Yes                    | Yes                    | https://bell-sw.com/java.html                           
+| IBM               | No                          | No                            | Yes                  | Yes                    | Yes                    | https://www.ibm.com/developerworks/java/jdk             
+| jClarity          | No                          | No                            | Yes                  | Yes                    | Yes                    | https://www.jclarity.com/adoptopenjdk-support/          
+| OpenJDK           | Yes                         | Yes                           | Yes                  | No                     | Yes                    | https://adoptopenjdk.net/upstream.html                  
+| Oracle JDK        | No                          | Yes                           | No**                 | Yes                    | No                     | https://www.oracle.com/technetwork/java/javase/downloads
+| Oracle OpenJDK    | Yes                         | Yes                           | No                   | No                     | Yes                    | https://jdk.java.net                                    
+| ojdkbuild         | Yes                         | Yes                           | No                   | No                     | Yes                    | https://github.com/ojdkbuild/ojdkbuild                  
+| RedHat            | Yes                         | Yes                           | Yes                  | Yes                    | Yes                    | https://developers.redhat.com/products/openjdk/overview 
+| SapMachine        | Yes                         | Yes                           | Yes                  | Yes                    | Yes                    | https://sap.github.io/SapMachine                        
+|====================================================================================================================================================================================================================
+

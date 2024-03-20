@@ -150,7 +150,7 @@
   }
 
   h2 {
-    font-size: 1.5em;
+    font-size: 1.7em;
     font-weight: 500 !important;
   }
 
@@ -193,10 +193,7 @@
   h3,
   #toctitle,
   .sidebarblock > .content > .title {
-    font-size: 1.6875rem;
-    @media screen and (min-width: 768px) {
-      font-size: 1.6875rem;
-    }
+    font-size: 1.3em;
   }
 
   // last child

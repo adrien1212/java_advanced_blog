@@ -1,0 +1,8 @@
+---
+title: "Java 11 release note"
+weight: 50
+---
+
+Java was released in 2018, and this version provide several new features :
+
+* qsq
