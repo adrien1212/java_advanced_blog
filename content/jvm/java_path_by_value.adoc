@@ -1,0 +1,101 @@
+---
+title: "Java path by value or reference ?"
+---
+
+== Pass-by-value vs Pass-by-reference
+
+The terms "`pass-by-value`" and "`pass-by-reference`" are talking about
+variables :
+
+* Pass-by-value means that the value of a variable is passed to a
+function/method.
+* Pass-by-reference means that a reference to that variable is passed to
+the function. The latter gives the function a way to change the contents
+of the variable.
+
+== But I pass an reference in Java ?
+
+WARNING: Java always passes
+arguments by value, but what you are passing by value *is a reference to
+an object*, not a copy of the object
+
+Java can give the illusion of pass by reference. When we deal with
+variables holding objects we are really dealing with object-handles
+called references which are passed-by-value as well.
+
+== Understand with exemple
+
+[source,java]
+----
+public class Main {
+     public static void main(String[] args) {
+        Foo f = new Foo("f");
+        changeReference(f); // It won't change the reference!
+        modifyReference(f); // It will modify the object that the reference variable "f" refers to!
+     }
+
+     public static void changeReference(Foo a) {
+        Foo b = new Foo("b");
+        a = b;
+     }
+
+     public static void modifyReference(Foo c) {
+        c.setAttribute("c");
+     }
+}
+----
+
+* `+Foo f+` declares a new pointer to a _Foo_ object. Suppose the _Foo_
+object resides at memory address 42.
+* `+changeReference(f)+` means you pass 42 to the method
+** the parameter `+a+` is set with the value 42
+** `+Foo b+` declares a new pointer to a _Foo_ object at the address 84
+** `+a = b+` makes a new assignment to the reference `+a+`, *not f*, of
+the object whose its address is 84.
+** Conclusion, `+f+` address is always 42
+* `+modifyReference(f)+` means you pass 42 to the method
+** `+c.setAttribute("c")+` will change the attribute of the object that
+reference c points to it (address 42), and it’s the same object that
+reference f points to it (address 42).
+
+== What say the Java documentation
+
+https://docs.oracle.com/javase/specs/jls/se11/html/jls-8.html#jls-8.4.1[https://docs.oracle.com/javase/specs/jls/se11/html/jls-8.html#jls-8.4.1:]
+
+____
+When the method or constructor is invoked (§15.12), the values of the
+actual argument expressions initialize newly created parameter
+variables, each of the declared type, before execution of the body of
+the method or constructor. The Identifier that appears in the
+FormalParameter may be used as a simple name in the body of the method
+or constructor to refer to the formal parameter.
+____
+
+https://docs.oracle.com/javase/specs/jls/se11/html/jls-15.html#jls-15.12.4.2
+
+____
+The argument expressions (possibly rewritten as described above) are now
+evaluated to yield argument values. Each argument value corresponds to
+exactly one of the method’s n formal parameters.
+____
+
+[ditaa]
+----
+                   +-------------+
+                   | Asciidoctor |-------+
+                   |  Diagram    |       |
+                   +-------------+       | PNG out
+                       ^                 |
+                       | ditaa in        |
+                       |                 v
+ +--------+   +--------+----+    /----------------\
+ |        | --+ Asciidoctor +--> |                |
+ |  Text  |   +-------------+    |Beautiful output|
+ |Document|   |   !magic!   |    |                |
+ |     {d}|   |             |    |                |
+ +---+----+   +-------------+    \----------------/
+     :                                   ^
+     |          Lots of work             |
+     +-----------------------------------+
+----
+

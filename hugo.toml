@@ -1,0 +1,77 @@
+baseURL = 'https://advancedjava.fr/'
+languageCode = 'fr-fr'
+title = 'Advanced Java'
+theme = ["hugo-theme-relearn"]
+relativeURLs = "True"
+enableRobotsTXT = true
+
+
+# For search functionality
+[outputs]
+  home = ["HTML", "RSS", "SEARCH", "SEARCHPAGE"]
+
+[params]
+  canonical = 'https://advancedjava.fr/'
+  author.name = "Adrien CAUBEL"
+  description = "Advanced Java"
+  alwaysopen = true
+  disableBreadcrumb = true      # disable the menu at the top of each page
+  disableNextPrev = true        # disable the menu at the top of each page
+  disableToc = true             # disable the menu at the top of each page
+  
+  showVisitedLinks = true
+  disableInlineCopyToClipBoard = true
+  ordersectionsby = "weight"
+  titleSeparator = "-"
+  externalLinkTarget = "_blank"
+  custom_css = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css", "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/intellij-light.min.css"]
+
+[params.themeVariant]
+    auto = ['zen-light', 'zen-dark']
+    identifier = 'zen-auto'
+    name = 'Zen Light/Dark'
+
+[markup]
+  defaultMarkdownHandler = 'asciidocext'
+
+[markup.asciidocExt]
+  args = ["--no-header-footer", "-r", "asciidoctor-html5s", "-b", "html5s", "-r", "asciidoctor-diagram"]
+  extensions = ["asciidoctor-html5s", "asciidoctor-diagram"]
+  workingFolderCurrent = true
+[markup.asciidocExt.attributes]
+  allow-uri-read = ""
+  source-highlighter = "highlight.js"
+  highlightjs-theme = "monokai"
+  source-language="java"
+  imagesdir = "static/images"
+  icons = "font"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bullhorn'></i> Ressources"
+url = "more/resources/"
+weight = 1
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-camera'></i> Adrien CAUBEL"
+url = "https://adriencaubel.fr/"
+weight = 5
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-linkedin'></i> Linkedin"
+url = "https://www.linkedin.com/in/adriencaubel/"
+weight = 10
+
+[[menu.shortcuts]] 
+name = "<i class='fab fa-github'></i> Github"
+identifier = "ds"
+url = "https://github.com/adrien1212/java_advanced_blog"
+weight = 15
+
+
+[security.exec]
+    allow = ['^asciidoctor$']
